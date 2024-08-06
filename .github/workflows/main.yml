@@ -16,5 +16,17 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+    - name: Debug information
+      run: |
+        echo "Current working directory:"
+        pwd
+        echo "Contents of current directory:"
+        ls -la
+        echo "Contents of parent directory:"
+        ls -la ..
+        echo "Environment variables:"
+        env
+        echo "Searching for main.py:"
+        find / -name main.py 2>/dev/null || echo "main.py not found"
     - name: Run script
       run: python main.py
